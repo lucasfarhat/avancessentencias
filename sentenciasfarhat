@@ -1,4 +1,4 @@
-use database proyectofinal,
+use database proyectofinal;
 
 # Crear usuario con permisos de sólo lectura
 CREATE USER 'usuario_lectura'@'localhost' IDENTIFIED BY 'password1';
