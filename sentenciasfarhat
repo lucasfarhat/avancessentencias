@@ -1,0 +1,17 @@
+use database proyectofinal,
+
+# Crear usuario con permisos de sólo lectura
+CREATE USER 'usuario_lectura'@'localhost' IDENTIFIED BY 'password1';
+
+# Crear usuario con permisos de lectura, inserción y modificación de datos
+CREATE USER 'usuario_modificacion'@'localhost' IDENTIFIED BY 'password2';
+
+# Otorgar permisos de sólo lectura al usuario_lectura sobre todas las tablas
+GRANT SELECT ON PROYECTOFINAL.* TO 'usuario_lectura'@'localhost';
+
+# Otorgar permisos de lectura, inserción y modificación de datos al usuario_modificacion
+GRANT SELECT, INSERT, UPDATE ON PROYECTOFINAL.* TO 'usuario_modificacion'@'localhost';
+
+# Revocar permisos de eliminación de registros a ambos usuarios
+REVOKE DELETE ON PROYECTOFINAL.* FROM 'usuario_lectura'@'localhost';
+REVOKE DELETE ON PROYECTOFINAL.* FROM 'usuario_modificacion'@'localhost';
